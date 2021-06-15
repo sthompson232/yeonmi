@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import App from "./App";
+import Loader from './Loader'
 import { createStore } from 'redux';
 import rootReducer from './reducers/index'
 import { Provider } from 'react-redux'
@@ -15,7 +15,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-          <App />
+            <Loader />
         </Provider>
     </React.StrictMode>,
   rootElement
