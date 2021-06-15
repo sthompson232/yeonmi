@@ -8,14 +8,16 @@ const App = React.lazy(() => import ('./App'))
 export default function Loader() {
   const start = useSelector(state => state.start)
 
-  console.log(start)
-
   return (
     <>
-      <Landing />
-      <Suspense fallback={<h1>Loading</h1>}>
-        <App />
-      </Suspense>
+      { 
+        start ? 
+        <Suspense fallback={<h1>Loading</h1>}>
+          <App className='app'/>
+        </Suspense>
+        : 
+        <Landing />
+      }
     </>
   );
 }
