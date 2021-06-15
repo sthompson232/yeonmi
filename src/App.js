@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "./components/Scene";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "./actions";
 
 export default function App() {
-  const [counter, setCounter] = useState(0);
+
+  const dispatch = useDispatch()
+  const counter = useSelector(state => state.counter)
   const [forwards, setForwards] = useState(true);
 
   const [disableButtons, setDisableButtons] = useState(false)
@@ -18,10 +22,13 @@ export default function App() {
   return (
     <>
       <div className="controls">
+        {/* <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
+        <h1>{counterRedux}</h1> */}
         <button
           disabled={disableButtons ? true : disableBack}
           onClick={() => {
-            setCounter(counter - 1);
+            dispatch(decrement())
             setForwards(false);
             setDisableButtons(true)
             setTimeout(() => {
@@ -34,7 +41,7 @@ export default function App() {
         <button
           disabled={disableButtons ? true : disableForward}
           onClick={() => {
-            setCounter(counter + 1);
+            dispatch(increment())
             setForwards(true);
             setDisableButtons(true)
             setTimeout(() => {
