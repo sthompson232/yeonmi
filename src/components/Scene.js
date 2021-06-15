@@ -34,13 +34,13 @@ export const Scene = ({ activeScene, forwards }) => {
   return (
     <>
       <Box ref={box} position={[0, 0, 10]} name="Box">
-        <meshLambertMaterial attach="material" color="white" />
+        <meshLambertMaterial attach="material" color="pink" />
       </Box>
       <Sphere ref={sphere} position={[0, 0, 10]} name="Sphere">
-        <meshLambertMaterial attach="material" color="white" />
+        <meshLambertMaterial attach="material" color="blue" />
       </Sphere>
       <Torus ref={torus} position={[0, 0, 10]} name="Torus">
-        <meshLambertMaterial attach="material" color="white" />
+        <meshLambertMaterial attach="material" color="green" />
       </Torus>
     </>
   );
