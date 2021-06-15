@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "./components/Scene";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement } from "./actions";
+import { increment, decrement } from "./actions/counter";
+import { forwardsFalse, forwardsTrue } from "./actions/buttons";
 
 export default function App() {
 
   const dispatch = useDispatch()
   const counter = useSelector(state => state.counter)
-  const [forwards, setForwards] = useState(true);
+  const forwards = useSelector(state => state.forwards)
 
   const [disableButtons, setDisableButtons] = useState(false)
   const [disableBack, setDisableBack] = useState(true)
@@ -21,37 +22,32 @@ export default function App() {
 
   return (
     <>
-      <div className="controls">
-        {/* <button onClick={() => dispatch(increment())}>+</button>
-        <button onClick={() => dispatch(decrement())}>-</button>
-        <h1>{counterRedux}</h1> */}
-        <button
-          disabled={disableButtons ? true : disableBack}
-          onClick={() => {
-            dispatch(decrement())
-            setForwards(false);
-            setDisableButtons(true)
-            setTimeout(() => {
-              setDisableButtons(false)
-            }, 1000)
-          }}
-        >
-          Backwards
-        </button>
-        <button
-          disabled={disableButtons ? true : disableForward}
-          onClick={() => {
-            dispatch(increment())
-            setForwards(true);
-            setDisableButtons(true)
-            setTimeout(() => {
-              setDisableButtons(false)
-            }, 1000)
-          }}
-        >
-          Forward
-        </button>
-      </div>
+      <button
+        disabled={disableButtons ? true : disableBack}
+        onClick={() => {
+          dispatch(decrement())
+          dispatch(forwardsFalse())
+          setDisableButtons(true)
+          setTimeout(() => {
+            setDisableButtons(false)
+          }, 1000)
+        }}
+      >
+        Backwards
+      </button>
+      <button
+        disabled={disableButtons ? true : disableForward}
+        onClick={() => {
+          dispatch(increment())
+          dispatch(forwardsTrue())
+          setDisableButtons(true)
+          setTimeout(() => {
+            setDisableButtons(false)
+          }, 1000)
+        }}
+      >
+        Forward
+      </button>
       <Canvas
         camera={{
           position: [-4, 2, 0],
