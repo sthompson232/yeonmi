@@ -1,0 +1,2 @@
+export const DISABLE_BUTTONS = 'DISABLE_BUTTONS';
+export const ENABLE_BUTTONS = 'ENABLE_BUTTONS';
