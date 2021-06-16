@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../actions/counter";
 import { forwardsFalse, forwardsTrue } from "../actions/buttons";
-import { Button } from '@material-ui/core'
+import { IconButton, Box } from '@material-ui/core'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import VolumeOffIcon from '@material-ui/icons/VolumeOff';
+
 
 export const Buttons = () => {
     const dispatch = useDispatch()
@@ -19,8 +24,10 @@ export const Buttons = () => {
       }, [counter])
     
     return (
-        <div>
-            <Button
+        <>
+        <Box p={2}>
+            <IconButton
+                className='buttons'
                 disabled={disableButtons ? true : disableBack}
                 onClick={() => {
                 dispatch(decrement())
@@ -31,9 +38,17 @@ export const Buttons = () => {
                 }, buttonTimeout)
                 }}
             >
-                Backwards
-            </Button>
-            <Button
+                <ArrowBackIcon />
+            </IconButton>
+            <IconButton>
+                <VolumeUpIcon />
+            </IconButton>
+            <IconButton>
+                <VolumeOffIcon />
+            </IconButton>
+            <h1 style={{ display: 'inline', paddingLeft: 10, paddingRight: 10, margin: 0 }}>{counter}</h1>
+            <IconButton
+                className='buttons'
                 disabled={disableButtons ? true : disableForward}
                 onClick={() => {
                 dispatch(increment())
@@ -44,9 +59,10 @@ export const Buttons = () => {
                 }, buttonTimeout)
                 }}
             >
-                Forward
-            </Button>
-        </div>
+                <ArrowForwardIcon />
+            </IconButton>
+        </Box>
+        </>
     )
 }
 

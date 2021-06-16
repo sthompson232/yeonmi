@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import Loader from './Loader'
 import { createStore } from 'redux';
 import rootReducer from './reducers/index'
 import { Provider } from 'react-redux'
+
+const App = React.lazy(() => import ('./App'))
 
 const store = createStore(
   rootReducer,
@@ -15,7 +16,9 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <Loader />
+          <Suspense fallback={<h1>Loading</h1>}>
+              <App />
+            </Suspense>
         </Provider>
     </React.StrictMode>,
   rootElement

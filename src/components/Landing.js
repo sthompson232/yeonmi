@@ -1,19 +1,21 @@
 import React from 'react'
-import { Button } from '@material-ui/core'
+import { Button, Paper } from '@material-ui/core'
 import { start } from "../actions/start";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export const Landing = () => {
     const dispatch = useDispatch()
     
     return (
-        <div>
+        <div style={{ height: '100vh' }}>
+            <Paper>
             <h1>This is the landing page</h1>
             <Button
                 onClick={() => {
                     dispatch(start())
                 }}
             >Start</Button>
+            </Paper>
         </div>
     )
 }
