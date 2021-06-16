@@ -15,7 +15,7 @@ export const Buttons = () => {
     const [disableButtons, setDisableButtons] = useState(false)
     const [disableBack, setDisableBack] = useState(true)
     const [disableForward, setDisableForward] = useState(false)
-    const buttonTimeout = 1000
+    const buttonTimeout = 5000
 
     useEffect(() => {
         {counter === 0 ? setDisableBack(true) : setDisableBack(false)}

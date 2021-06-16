@@ -11,6 +11,8 @@ export const Scene = ({ activeScene, forwards }) => {
   const [activeBox, setActiveBox] = useState(null);
   const [prevBox, setPrevBox] = useState(null);
 
+  const movementSpeed = 0.005
+
   useEffect(() => {
     if (activeScene === 0) {setActiveBox(box)
     } else if (activeScene === 1) {setActiveBox(sphere)
@@ -25,9 +27,9 @@ export const Scene = ({ activeScene, forwards }) => {
   }
 
   useFrame(() => {
-    activeBox.current.position.lerp(activeVec, 0.05);
+    activeBox.current.position.lerp(activeVec, movementSpeed);
     try {
-      prevBox.current.position.lerp(inactiveVec, 0.05);
+      prevBox.current.position.lerp(inactiveVec, movementSpeed);
     } catch {}
   });
 
