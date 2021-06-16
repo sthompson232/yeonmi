@@ -34,14 +34,18 @@ export const Scene = ({ activeScene, forwards }) => {
   return (
     <>
       <Box ref={box} position={[0, 0, 10]} name="Box">
-        <meshLambertMaterial attach="material" color="pink" />
+        <meshLambertMaterial color="pink" />
       </Box>
       <Sphere ref={sphere} position={[0, 0, 10]} name="Sphere">
-        <meshLambertMaterial attach="material" color="blue" />
+        <meshLambertMaterial color="blue" />
       </Sphere>
       <Torus ref={torus} position={[0, 0, 10]} name="Torus">
-        <meshLambertMaterial attach="material" color="green" />
+        <meshLambertMaterial color="green" />
       </Torus>
+      <mesh rotation={[Math.PI * 1.5, 0, 0]} position={[0, -1, 0]}>
+        <planeBufferGeometry args={[100, 100]} />
+        <meshStandardMaterial color="white" />
+      </mesh>
     </>
   );
 };

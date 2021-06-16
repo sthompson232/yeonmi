@@ -23,7 +23,7 @@ const App = () => {
               antialias: true
             }}
             camera={{
-              position: [-4, 2, 0],
+              position: [-15, 2, 0],
               fov: 50,
               near: 1
             }}
@@ -31,7 +31,7 @@ const App = () => {
               gl.setClearColor('#0E0E0E')
             }}
           >
-            <ambientLight intensity={0.5} />
+            <spotLight intensity={0.5} position={[-1, 2, 0]} penumbra={1}/>
             <Scene activeScene={counter} forwards={forwards} />
           </Canvas>
           </>
