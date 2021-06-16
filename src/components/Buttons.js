@@ -7,11 +7,13 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
+import { soundOn, soundOff } from '../actions/sound'
 
 
 export const Buttons = () => {
     const dispatch = useDispatch()
 
+    const sound = useSelector(state => state.sound)
     const counter = useSelector(state => state.counter)
     const [disableButtons, setDisableButtons] = useState(false)
     const [disableBack, setDisableBack] = useState(true)
@@ -40,13 +42,25 @@ export const Buttons = () => {
             >
                 <ArrowBackIcon />
             </IconButton>
-            <IconButton>
-                <VolumeUpIcon />
-            </IconButton>
-            <IconButton>
-                <VolumeOffIcon />
-            </IconButton>
-            <h1 style={{ display: 'inline', paddingLeft: 10, paddingRight: 10, margin: 0 }}>{counter}</h1>
+            {sound ?
+                <IconButton 
+                    className='buttons'
+                    onClick={() => {
+                        dispatch(soundOff())
+                    }}
+                >
+                    <VolumeUpIcon />
+                </IconButton>
+                :
+                <IconButton 
+                    className='buttons'
+                    onClick={() => {
+                        dispatch(soundOn())
+                    }}
+                >
+                    <VolumeOffIcon />
+                </IconButton>
+            }
             <IconButton
                 className='buttons'
                 disabled={disableButtons ? true : disableForward}

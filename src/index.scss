@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 
-$black: '#0E0E0E';
+$black: #0E0E0E;
+$secondary: #e8e1d7;
 
 * {
   box-sizing: border-box;
@@ -9,17 +10,18 @@ $black: '#0E0E0E';
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Serif Pro', serif;
   letter-spacing: 1.5px;
-  color: $black;
+  color: #ffffff;
 }
 
 p {
-  font-family: 'Source Serif Pro', serif;
-  color: $black;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #ffffff;
 }
 
 html,
 body,
-#root {
+#root,
+.loader {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -42,19 +44,22 @@ body,
   transform: scale(1.5);
 }
 
-.counterVisual {
-  display: 'inline'; 
-  padding-left: 10;
-  padding-right: 10; 
-  margin-bottom: 0;
+.startButton {
+  color: #0E0E0E;
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 15px;
 }
 
 .landing {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  font-size: 5rem;
   margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: $black;
 }
