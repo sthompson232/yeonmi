@@ -4,6 +4,7 @@ import { Dashboard } from './components/Dashboard';
 import { useSelector } from "react-redux";
 import React from "react";
 import { Landing } from './components/Landing'
+import { OrbitControls } from "@react-three/drei";
 
 const App = () => {
     const counter = useSelector(state => state.counter)
@@ -27,13 +28,14 @@ const App = () => {
               position: [-8, 2, 0],
               fov: 50,
               near: 1,
-              far: 25
+              // far: 25
             }}
             onCreated={({gl}) => {
               gl.setClearColor('#0E0E0E')
             }}
           >
             <spotLight castShadow intensity={0.5} position={[-1, 2, 0]} penumbra={1}/>
+            <OrbitControls />
             <Scene activeScene={counter} forwards={forwards} />
           </Canvas>
           </>
