@@ -13,15 +13,15 @@ export const Story = ({ counter }) => {
 
     return (
         <div>
-        <div ref={scene1} style={{ display: 'none' }}>
+        <div ref={scene1}>
             <h1 className='story'>Title1</h1>
             <p className='story'>Description1</p>
         </div>
-        <div ref={scene2} style={{ display: 'none' }}>
+        <div ref={scene2}>
             <h1 className='story'>Title2</h1>
             <p className='story'>Description2</p>
         </div>
-        <div ref={scene3} style={{ display: 'none' }}>
+        <div ref={scene3}>
             <h1 className='story'>Title3</h1>
             <p className='story'>Description3</p>
         </div>

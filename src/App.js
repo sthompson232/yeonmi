@@ -17,21 +17,23 @@ const App = () => {
           <>
           <Dashboard counter={counter}/>
           <Canvas
+            shadows
             gl={{
               preserveDrawingBuffer: true,
               alpha: false, 
               antialias: true
             }}
             camera={{
-              position: [-15, 2, 0],
+              position: [-8, 2, 0],
               fov: 50,
-              near: 1
+              near: 1,
+              far: 25
             }}
             onCreated={({gl}) => {
               gl.setClearColor('#0E0E0E')
             }}
           >
-            <spotLight intensity={0.5} position={[-1, 2, 0]} penumbra={1}/>
+            <spotLight castShadow intensity={0.5} position={[-1, 2, 0]} penumbra={1}/>
             <Scene activeScene={counter} forwards={forwards} />
           </Canvas>
           </>

@@ -21,9 +21,9 @@ export const Scene = ({ activeScene, forwards }) => {
   }, [activeScene]);
 
   const activeVec = new THREE.Vector3(0, 0, 0);
-  let inactiveVec = new THREE.Vector3(0, 0, -10);
+  let inactiveVec = new THREE.Vector3(0, 0, -50);
   if (!forwards) {
-    inactiveVec = new THREE.Vector3(0, 0, 10);
+    inactiveVec = new THREE.Vector3(0, 0, 50);
   }
 
   useFrame(() => {
@@ -35,16 +35,16 @@ export const Scene = ({ activeScene, forwards }) => {
 
   return (
     <>
-      <Box ref={box} position={[0, 0, 10]} name="Box">
+      <Box castShadow ref={box} position={[0, 1, 10]} name="Box">
         <meshLambertMaterial color="pink" />
       </Box>
-      <Sphere ref={sphere} position={[0, 0, 10]} name="Sphere">
+      <Sphere castShadow ref={sphere} position={[0, 0, 10]} name="Sphere">
         <meshLambertMaterial color="blue" />
       </Sphere>
-      <Torus ref={torus} position={[0, 0, 10]} name="Torus">
+      <Torus castShadow ref={torus} position={[0, 0, 10]} name="Torus">
         <meshLambertMaterial color="green" />
       </Torus>
-      <mesh rotation={[Math.PI * 1.5, 0, 0]} position={[0, -1, 0]}>
+      <mesh receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, -1, 0]}>
         <planeBufferGeometry args={[100, 100]} />
         <meshStandardMaterial color="white" />
       </mesh>

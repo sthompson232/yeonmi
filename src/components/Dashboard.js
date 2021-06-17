@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Buttons } from './Buttons'
 import { Paper } from '@material-ui/core'
 import { Story } from './Story'
