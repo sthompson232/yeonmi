@@ -47,7 +47,7 @@ export const Scene = ({ activeScene, forwards }) => {
 
   return (
     <>
-      <animated.mesh ref={box} position={prevBoxPos} name="Box">
+      <animated.mesh ref={box} position={boxPos} name="Box">
         <boxGeometry attach="geometry" />
         <meshStandardMaterial attach="material" color="grey" transparent />
       </animated.mesh>
