@@ -15,7 +15,7 @@ const App = () => {
         { 
           start ? 
           <>
-          <Dashboard />
+          <Dashboard counter={counter}/>
           <Canvas
             gl={{
               preserveDrawingBuffer: true,
