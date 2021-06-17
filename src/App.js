@@ -28,10 +28,10 @@ const App = () => {
               position: [-8, 2, 0],
               fov: 50,
               near: 1,
-              // far: 25
+              far: 30
             }}
             onCreated={({gl}) => {
-              gl.setClearColor('#0E0E0E')
+              gl.setClearColor('#000000')
             }}
           >
             <spotLight castShadow intensity={0.5} position={[-1, 2, 0]} penumbra={1}/>
