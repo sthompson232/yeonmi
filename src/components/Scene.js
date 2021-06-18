@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { TextureLoader } from "three"
 import { useSpring, animated } from '@react-spring/three';
+import { Plane } from '@react-three/drei'
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import southkorea from '../resources/southkorea.glb'
@@ -9,8 +9,7 @@ import father from '../resources/father.glb'
 import child from '../resources/child.glb'
 import america from '../resources/america.glb'
 import mongolia from '../resources/mongolia.glb'
-import img from '../resources/color.jpg'
-import nrml from '../resources/normal.jpg'
+
 
 export const Scene = ({ activeScene, forwards }) => {
   const scene1 = useRef();
@@ -143,13 +142,12 @@ export const Scene = ({ activeScene, forwards }) => {
         <primitive object={scene6Mesh.scene} />
       </animated.mesh>
 
-      <mesh receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]}>
-        <planeBufferGeometry args={[30, 15]} />
+      <Plane receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[10, 10]}>
         <meshStandardMaterial 
-          // map={texture} 
-          // normalMap={normal}
+          color="#ffffff"
+          metalness={1}
         />
-      </mesh>
+      </Plane>
     </>
   );
 };
