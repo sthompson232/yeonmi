@@ -4,6 +4,7 @@ import { useSpring, animated } from '@react-spring/three';
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import southkorea from '../resources/southkorea.glb'
+import china from '../resources/china.glb'
 import img from '../resources/color.jpg'
 import nrml from '../resources/normal.jpg'
 
@@ -37,6 +38,8 @@ export const Scene = ({ activeScene, forwards }) => {
   }
 
   const scene5 = useLoader(GLTFLoader, southkorea)
+  const scene3 = useLoader(GLTFLoader, china)
+
   const { boxPos } = useSpring({
     config,
     boxPos:
@@ -72,8 +75,7 @@ export const Scene = ({ activeScene, forwards }) => {
       </animated.mesh>
 
       <animated.mesh castShadow ref={sphere} position={spherePos} name="Sphere">
-        <sphereGeometry attach="geometry" />
-        <meshStandardMaterial attach="material" color="grey" transparent />
+        <primitive object={scene3.scene} />
       </animated.mesh>
 
       <animated.mesh castShadow ref={torus} position={torusPos} name="Torus">
