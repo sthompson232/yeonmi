@@ -7,7 +7,7 @@ export const Dashboard = ({ counter }) => {
 
     return (
         <div className='dashboard'>
-            <Paper square>
+            <Paper square style={{ backgroundColor: '#0E0E0E' }}>
                 <Story counter={counter} />
                 <Buttons />
             </Paper>

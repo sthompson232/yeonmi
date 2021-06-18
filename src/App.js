@@ -37,7 +37,7 @@ const App = () => {
             }}
           >
             <spotLight castShadow intensity={1} position={[-0.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
-            <OrbitControls />
+            {/* <OrbitControls /> */}
             <Scene activeScene={counter} forwards={forwards} />
           </Canvas>
           </>

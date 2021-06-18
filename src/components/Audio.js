@@ -5,7 +5,7 @@ import { soundOn, soundOff } from '../actions/sound'
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 
-export const Audio = ({ color }) => {
+export const Audio = () => {
     const dispatch = useDispatch()
     const soundfile = document.getElementById("soundfile")
     const sound = useSelector(state => state.sound)
@@ -29,7 +29,7 @@ export const Audio = ({ color }) => {
                         dispatch(soundOff())
                     }}
                 >
-                    <VolumeUpIcon style={{ color: color }}/>
+                    <VolumeUpIcon style={{ color: '#ffffff' }}/>
                 </IconButton>
                 :
                 <IconButton 
@@ -38,7 +38,7 @@ export const Audio = ({ color }) => {
                         dispatch(soundOn())
                     }}
                 >
-                    <VolumeOffIcon style={{ color: color }}/>
+                    <VolumeOffIcon style={{ color: '#ffffff' }}/>
                 </IconButton>
             }
         </>

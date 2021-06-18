@@ -37,9 +37,9 @@ export const Buttons = () => {
                 }, buttonTimeout)
                 }}
             >
-                <ArrowBackIcon />
+                <ArrowBackIcon style={disableButtons || disableBack ? {color: '#555555'} : {color: '#ffffff'}} />
             </IconButton>
-            <Audio color={'#0E0E0E'}/>
+            <Audio />
             <IconButton
                 className='buttons'
                 disabled={disableButtons ? true : disableForward}
@@ -52,7 +52,7 @@ export const Buttons = () => {
                 }, buttonTimeout)
                 }}
             >
-                <ArrowForwardIcon />
+                <ArrowForwardIcon style={disableButtons || disableForward ? {color: '#555555'} : {color: '#ffffff'}}  />
             </IconButton>
         </Box>
         </>
