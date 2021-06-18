@@ -18,6 +18,7 @@ const App = () => {
           <>
           <Dashboard counter={counter}/>
           <Canvas
+          sRGB
             colorManagement={true}
             shadows
             gl={{
@@ -35,7 +36,7 @@ const App = () => {
               gl.setClearColor('#000000')
             }}
           >
-            <spotLight castShadow intensity={0.5} position={[0, 4, 0]} penumbra={0.3} angle={Math.PI / 4.5}/>
+            <spotLight castShadow intensity={1} position={[-0.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
             <OrbitControls />
             <Scene activeScene={counter} forwards={forwards} />
           </Canvas>

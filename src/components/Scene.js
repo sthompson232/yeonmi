@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from '@react-spring/three';
 import { Plane } from '@react-three/drei'
-import { useLoader } from '@react-three/fiber'
+import { useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import southkorea from '../resources/southkorea.glb'
 import china from '../resources/china.glb'
@@ -39,6 +39,10 @@ export const Scene = ({ activeScene, forwards }) => {
     }
     setPrevBox(activeBox);
   }, [activeScene]);
+
+  useFrame(() => {
+    activeBox.current.rotation.y += 0.0005
+  })
 
   let prevScene1Pos = undefined 
   let prevScene2Pos = undefined 
@@ -145,7 +149,6 @@ export const Scene = ({ activeScene, forwards }) => {
       <Plane receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[10, 10]}>
         <meshStandardMaterial 
           color="#ffffff"
-          metalness={1}
         />
       </Plane>
     </>
