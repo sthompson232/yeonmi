@@ -143,7 +143,7 @@ export const Scene = ({ activeScene, forwards }) => {
         <primitive object={scene6Mesh.scene} />
       </animated.mesh>
 
-      <mesh receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, -1, 0]}>
+      <mesh receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]}>
         <planeBufferGeometry args={[30, 15]} />
         <meshStandardMaterial 
           // map={texture} 
