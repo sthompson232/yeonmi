@@ -5,6 +5,8 @@ import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import southkorea from '../resources/southkorea.glb'
 import china from '../resources/china.glb'
+import father from '../resources/father.glb'
+import child from '../resources/child.glb'
 import img from '../resources/color.jpg'
 import nrml from '../resources/normal.jpg'
 
@@ -37,6 +39,8 @@ export const Scene = ({ activeScene, forwards }) => {
     friction: 200
   }
 
+  const scene1 = useLoader(GLTFLoader, child)
+  const scene2 = useLoader(GLTFLoader, father)
   const scene5 = useLoader(GLTFLoader, southkorea)
   const scene3 = useLoader(GLTFLoader, china)
 
@@ -71,7 +75,7 @@ export const Scene = ({ activeScene, forwards }) => {
   return (
     <>
       <animated.mesh castShadow ref={box} position={boxPos} name="Box">
-        <primitive object={scene5.scene} />
+        <primitive object={scene1.scene} />
       </animated.mesh>
 
       <animated.mesh castShadow ref={sphere} position={spherePos} name="Sphere">
@@ -79,8 +83,7 @@ export const Scene = ({ activeScene, forwards }) => {
       </animated.mesh>
 
       <animated.mesh castShadow ref={torus} position={torusPos} name="Torus">
-        <torusGeometry attach="geometry" />
-        <meshStandardMaterial attach="material" color="grey" transparent />
+      <primitive object={scene2.scene} />
       </animated.mesh>
 
       <mesh receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, -1, 0]}>
