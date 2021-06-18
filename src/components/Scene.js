@@ -7,6 +7,8 @@ import southkorea from '../resources/southkorea.glb'
 import china from '../resources/china.glb'
 import father from '../resources/father.glb'
 import child from '../resources/child.glb'
+import america from '../resources/america.glb'
+import mongolia from '../resources/mongolia.glb'
 import img from '../resources/color.jpg'
 import nrml from '../resources/normal.jpg'
 
@@ -41,8 +43,10 @@ export const Scene = ({ activeScene, forwards }) => {
 
   const scene1 = useLoader(GLTFLoader, child)
   const scene2 = useLoader(GLTFLoader, father)
-  const scene5 = useLoader(GLTFLoader, southkorea)
   const scene3 = useLoader(GLTFLoader, china)
+  const scene4 = useLoader(GLTFLoader, mongolia)
+  const scene5 = useLoader(GLTFLoader, southkorea)
+  const scene6 = useLoader(GLTFLoader, america)
 
   const { boxPos } = useSpring({
     config,
@@ -79,7 +83,7 @@ export const Scene = ({ activeScene, forwards }) => {
       </animated.mesh>
 
       <animated.mesh castShadow ref={sphere} position={spherePos} name="Sphere">
-        <primitive object={scene3.scene} />
+        <primitive object={scene4.scene} />
       </animated.mesh>
 
       <animated.mesh castShadow ref={torus} position={torusPos} name="Torus">
