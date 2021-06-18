@@ -14,9 +14,11 @@ import nrml from '../resources/normal.jpg'
 
 export const Scene = ({ activeScene, forwards }) => {
   const scene1 = useRef();
-  const box = useRef();
-  const sphere = useRef();
-  const torus = useRef();
+  const scene2 = useRef();
+  const scene3 = useRef();
+  const scene4 = useRef();
+  const scene5 = useRef();
+  const scene6 = useRef();
 
   const texture = useLoader(TextureLoader, img)
   const normal = useLoader(TextureLoader, nrml)
@@ -26,14 +28,21 @@ export const Scene = ({ activeScene, forwards }) => {
 
   useEffect(() => {
     if (activeScene === 0) {setActiveBox(scene1)
-    } else if (activeScene === 1) {setActiveBox(sphere)
-    } else if (activeScene === 2) {setActiveBox(torus)}
+    } else if (activeScene === 1) {setActiveBox(scene2)
+    } else if (activeScene === 2) {setActiveBox(scene3)
+    } else if (activeScene === 3) {setActiveBox(scene4)
+    } else if (activeScene === 4) {setActiveBox(scene5)
+    } else if (activeScene === 5) {setActiveBox(scene6)
+    }
     setPrevBox(activeBox);
   }, [activeScene]);
 
   let prevScene1Pos = undefined 
-  let prevSpherePos = undefined 
-  let prevTorusPos = undefined 
+  let prevScene2Pos = undefined 
+  let prevScene3Pos = undefined 
+  let prevScene4Pos = undefined 
+  let prevScene5Pos = undefined 
+  let prevScene6Pos = undefined 
 
   const config = {
     duration: 2000,
@@ -58,23 +67,50 @@ export const Scene = ({ activeScene, forwards }) => {
       prevBox.current.name === 'Scene1' && !forwards ? prevScene1Pos = [0, 0, 20] :
       prevScene1Pos
   })
-  const { spherePos } = useSpring({
+  const { scene2Pos } = useSpring({
     config,
-    spherePos: 
-      activeBox.current === undefined || prevBox.current === undefined ? prevSpherePos = [0, 0, 20] : 
-      activeBox.current.name === 'Sphere' ? prevSpherePos = [0, 0, 0] : 
-      prevBox.current.name === 'Sphere' && forwards ? prevSpherePos = [0, 0, -20] : 
-      prevBox.current.name === 'Sphere' && !forwards ? prevSpherePos = [0, 0, 20] :
-      prevSpherePos
+    scene2Pos:
+      activeBox.current === undefined || prevBox.current === undefined ? prevScene2Pos = [0, 0, 20] : 
+      activeBox.current.name === 'Scene2' ? prevScene2Pos = [0, 0, 0] : 
+      prevBox.current.name === 'Scene2' && forwards ? prevScene2Pos = [0, 0, -20] :
+      prevBox.current.name === 'Scene2' && !forwards ? prevScene2Pos = [0, 0, 20] :
+      prevScene2Pos
   })
-  const { torusPos } = useSpring({
+  const { scene3Pos } = useSpring({
     config,
-    torusPos:
-      activeBox.current === undefined || prevBox.current === undefined ? prevTorusPos = [0, 0, 20] : 
-      activeBox.current.name === 'Torus' ? prevTorusPos = [0, 0, 0] : 
-      prevBox.current.name === 'Torus' && forwards ? prevTorusPos = [0, 0, -20] : 
-      prevBox.current.name === 'Torus' && !forwards ? prevTorusPos = [0, 0, 20] :
-      prevTorusPos 
+    scene3Pos:
+      activeBox.current === undefined || prevBox.current === undefined ? prevScene3Pos = [0, 0, 20] : 
+      activeBox.current.name === 'Scene3' ? prevScene3Pos = [0, 0, 0] : 
+      prevBox.current.name === 'Scene3' && forwards ? prevScene3Pos = [0, 0, -20] :
+      prevBox.current.name === 'Scene3' && !forwards ? prevScene3Pos = [0, 0, 20] :
+      prevScene3Pos
+  })
+  const { scene4Pos } = useSpring({
+    config,
+    scene4Pos:
+      activeBox.current === undefined || prevBox.current === undefined ? prevScene4Pos = [0, 0, 20] : 
+      activeBox.current.name === 'Scene4' ? prevScene4Pos = [0, 0, 0] : 
+      prevBox.current.name === 'Scene4' && forwards ? prevScene4Pos = [0, 0, -20] :
+      prevBox.current.name === 'Scene4' && !forwards ? prevScene4Pos = [0, 0, 20] :
+      prevScene4Pos
+  })
+  const { scene5Pos } = useSpring({
+    config,
+    scene5Pos:
+      activeBox.current === undefined || prevBox.current === undefined ? prevScene5Pos = [0, 0, 20] : 
+      activeBox.current.name === 'Scene5' ? prevScene5Pos = [0, 0, 0] : 
+      prevBox.current.name === 'Scene5' && forwards ? prevScene5Pos = [0, 0, -20] :
+      prevBox.current.name === 'Scene5' && !forwards ? prevScene5Pos = [0, 0, 20] :
+      prevScene5Pos
+  })
+  const { scene6Pos } = useSpring({
+    config,
+    scene6Pos:
+      activeBox.current === undefined || prevBox.current === undefined ? prevScene6Pos = [0, 0, 20] : 
+      activeBox.current.name === 'Scene6' ? prevScene6Pos = [0, 0, 0] : 
+      prevBox.current.name === 'Scene6' && forwards ? prevScene6Pos = [0, 0, -20] :
+      prevBox.current.name === 'Scene6' && !forwards ? prevScene6Pos = [0, 0, 20] :
+      prevScene6Pos
   })
 
   return (
@@ -83,12 +119,24 @@ export const Scene = ({ activeScene, forwards }) => {
         <primitive object={scene1Mesh.scene} />
       </animated.mesh>
 
-      <animated.mesh castShadow ref={sphere} position={spherePos} name="Sphere">
+      <animated.mesh castShadow ref={scene2} position={scene2Pos} name="Scene2">
+        <primitive object={scene2Mesh.scene} />
+      </animated.mesh>
+
+      <animated.mesh castShadow ref={scene3} position={scene3Pos} name="Scene3">
+        <primitive object={scene3Mesh.scene} />
+      </animated.mesh>
+
+      <animated.mesh castShadow ref={scene4} position={scene4Pos} name="Scene4">
         <primitive object={scene4Mesh.scene} />
       </animated.mesh>
 
-      <animated.mesh castShadow ref={torus} position={torusPos} name="Torus">
-      <primitive object={scene2Mesh.scene} />
+      <animated.mesh castShadow ref={scene5} position={scene5Pos} name="Scene5">
+        <primitive object={scene5Mesh.scene} />
+      </animated.mesh>
+
+      <animated.mesh castShadow ref={scene6} position={scene6Pos} name="Scene6">
+        <primitive object={scene6Mesh.scene} />
       </animated.mesh>
 
       <mesh receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, -1, 0]}>

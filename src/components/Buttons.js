@@ -19,7 +19,7 @@ export const Buttons = () => {
 
     useEffect(() => {
         {counter === 0 ? setDisableBack(true) : setDisableBack(false)}
-        {counter === 2 ? setDisableForward(true) : setDisableForward(false)}
+        {counter === 5 ? setDisableForward(true) : setDisableForward(false)}
       }, [counter])
     
     return (
