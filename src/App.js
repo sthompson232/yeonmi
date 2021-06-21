@@ -1,9 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "./components/Scene";
-import { Dashboard } from './components/Dashboard';
 import { useSelector } from "react-redux";
 import React from "react";
 import { Landing } from './components/Landing'
+import { Dashboard } from './components/Dashboard'
 import { OrbitControls } from "@react-three/drei";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
         { 
           start ? 
           <>
-          <Dashboard counter={counter}/>
+          <Dashboard counter={counter} />
           <Canvas
           sRGB
             colorManagement={true}

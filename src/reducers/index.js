@@ -3,12 +3,14 @@ import forwardsReducer from "./buttons";
 import startReducer from "./start";
 import soundReducer from "./sound";
 import { combineReducers } from "redux";
+import dashboardReducer from "./dashboard";
 
 const rootReducer = combineReducers({
     counter: counterReducer,
     forwards: forwardsReducer,
     start: startReducer,
-    sound: soundReducer
+    sound: soundReducer,
+    dashboard: dashboardReducer
 })
 
 export default rootReducer
