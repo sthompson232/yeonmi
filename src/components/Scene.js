@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from '@react-spring/three';
 import { Plane } from '@react-three/drei'
-import { useFrame, useLoader } from '@react-three/fiber'
+import { useFrame, useLoader, useThree } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import southkorea from '../resources/southkorea.glb'
 import china from '../resources/china.glb'
@@ -11,7 +11,7 @@ import america from '../resources/america.glb'
 import mongolia from '../resources/mongolia.glb'
 
 
-export const Scene = ({ activeScene, forwards }) => {
+export const Scene = ({ activeScene, forwards, dashboard }) => {
   const scene1 = useRef();
   const scene2 = useRef();
   const scene3 = useRef();
@@ -19,12 +19,19 @@ export const Scene = ({ activeScene, forwards }) => {
   const scene5 = useRef();
   const scene6 = useRef();
 
-  const startPosition = [0, 0, 20]
-  const endPosition = [0, 0, -20]
-  const livePosition = [0, 0, 0]
+  let startPosition = [0, 0, 20]
+  let endPosition = [0, 0, -20]
+  let livePosition = [0, 0, 0]
 
-  // const texture = useLoader(TextureLoader, img)
-  // const normal = useLoader(TextureLoader, nrml)
+  if (dashboard) {
+    startPosition = [2, 0, 20]
+    endPosition = [2, 0, -20]
+    livePosition = [2, 0, 0]
+  } else {
+    startPosition = [0, 0, 20]
+    endPosition = [0, 0, -20]
+    livePosition = [0, 0, 0]
+  }
 
   const [activeBox, setActiveBox] = useState(scene1);
   const [prevBox, setPrevBox] = useState(scene1);
@@ -58,6 +65,7 @@ export const Scene = ({ activeScene, forwards }) => {
     friction: 200
   }
 
+  // LOAD MODELS 
   const scene1Mesh = useLoader(GLTFLoader, child)
   const scene2Mesh = useLoader(GLTFLoader, father)
   const scene3Mesh = useLoader(GLTFLoader, china)
@@ -65,6 +73,7 @@ export const Scene = ({ activeScene, forwards }) => {
   const scene5Mesh = useLoader(GLTFLoader, southkorea)
   const scene6Mesh = useLoader(GLTFLoader, america)
 
+  // POSITIONS OF ALL MODELS
   const { scene1Pos } = useSpring({
     config,
     scene1Pos:
@@ -120,6 +129,60 @@ export const Scene = ({ activeScene, forwards }) => {
       prevScene6Pos
   })
 
+  // GIVING SHADOWS TO ALL MESH
+  scene1Mesh.scene.traverse(function(child) {
+    if (child.isMesh) {
+      child.castShadow = true
+      child.receiveShadow = true
+    }
+  })
+  scene2Mesh.scene.traverse(function(child) {
+    if (child.isMesh) {
+      child.castShadow = true
+      child.receiveShadow = true
+    }
+  })
+  scene3Mesh.scene.traverse(function(child) {
+    if (child.isMesh) {
+      child.castShadow = true
+      child.receiveShadow = true
+    }
+  })
+  scene4Mesh.scene.traverse(function(child) {
+    if (child.isMesh) {
+      child.castShadow = true
+      child.receiveShadow = true
+    }
+  })
+  scene5Mesh.scene.traverse(function(child) {
+    if (child.isMesh) {
+      child.castShadow = true
+      child.receiveShadow = true
+    }
+  })
+  scene6Mesh.scene.traverse(function(child) {
+    if (child.isMesh) {
+      child.castShadow = true
+      child.receiveShadow = true
+    }
+  })
+
+  const spotlight = useRef()
+  const { scene } = useThree();
+
+  useEffect(() => {
+    if (spotlight.current) {
+      if (dashboard) {
+        spotlight.current.position.set(1.5, 6, 0)
+        spotlight.current.target.position.set(2, 0, 0)
+      } else {
+        spotlight.current.position.set(-0.5, 6, 0)
+        spotlight.current.target.position.set(0, 0, 0)
+      }
+      scene.add(spotlight.current.target)
+    }
+  }, [dashboard])
+
   return (
     <>
       <animated.mesh castShadow ref={scene1} position={scene1Pos} name="Scene1">
@@ -146,11 +209,12 @@ export const Scene = ({ activeScene, forwards }) => {
         <primitive object={scene6Mesh.scene} />
       </animated.mesh>
 
-      <Plane receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[10, 10]}>
+      <Plane receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[15, 15]}>
         <meshStandardMaterial 
           color="#ffffff"
         />
       </Plane>
+      <spotLight ref={spotlight} castShadow intensity={1} position={[4.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
     </>
   );
 };
