@@ -129,46 +129,16 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
       prevScene6Pos
   })
 
-  // GIVING SHADOWS TO ALL MESH
-  scene1Mesh.scene.traverse(function(child) {
-    if (child.isMesh) {
-      child.castShadow = true
-      child.receiveShadow = true
-    }
-  })
-  scene2Mesh.scene.traverse(function(child) {
-    if (child.isMesh) {
-      child.castShadow = true
-      child.receiveShadow = true
-    }
-  })
-  scene3Mesh.scene.traverse(function(child) {
-    if (child.isMesh) {
-      child.castShadow = true
-      child.receiveShadow = true
-    }
-  })
-  scene4Mesh.scene.traverse(function(child) {
-    if (child.isMesh) {
-      child.castShadow = true
-      child.receiveShadow = true
-    }
-  })
-  scene5Mesh.scene.traverse(function(child) {
-    if (child.isMesh) {
-      child.castShadow = true
-      child.receiveShadow = true
-    }
-  })
-  scene6Mesh.scene.traverse(function(child) {
-    if (child.isMesh) {
-      child.castShadow = true
-      child.receiveShadow = true
-    }
-  })
-
   const spotlight = useRef()
   const { scene } = useThree();
+
+  const { spotlightPos, spotlightTarget } = useSpring({
+    config,
+    spotlightPos:
+    dashboard ? (1.5, 6, 0) : (-0.5, 6, 0),
+    spotlightTarget:
+    dashboard ? (2, 6, 0) : (0, 6, 0)
+  })
 
   useEffect(() => {
     if (spotlight.current) {
@@ -182,6 +152,44 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
       scene.add(spotlight.current.target)
     }
   }, [dashboard])
+
+    // GIVING SHADOWS TO ALL MESH
+    scene1Mesh.scene.traverse(function(child) {
+      if (child.isMesh) {
+        child.castShadow = true
+        child.receiveShadow = true
+      }
+    })
+    scene2Mesh.scene.traverse(function(child) {
+      if (child.isMesh) {
+        child.castShadow = true
+        child.receiveShadow = true
+      }
+    })
+    scene3Mesh.scene.traverse(function(child) {
+      if (child.isMesh) {
+        child.castShadow = true
+        child.receiveShadow = true
+      }
+    })
+    scene4Mesh.scene.traverse(function(child) {
+      if (child.isMesh) {
+        child.castShadow = true
+        child.receiveShadow = true
+      }
+    })
+    scene5Mesh.scene.traverse(function(child) {
+      if (child.isMesh) {
+        child.castShadow = true
+        child.receiveShadow = true
+      }
+    })
+    scene6Mesh.scene.traverse(function(child) {
+      if (child.isMesh) {
+        child.castShadow = true
+        child.receiveShadow = true
+      }
+    })
 
   return (
     <>
