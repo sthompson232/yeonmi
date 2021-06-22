@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "./components/Scene";
 import { useSelector } from "react-redux";
-import React from "react";
+import React, { useEffect } from "react";
 import { Landing } from './components/Landing'
 import { Dashboard } from './components/Dashboard'
 import { OrbitControls } from "@react-three/drei";
@@ -11,6 +11,16 @@ const App = () => {
     const forwards = useSelector(state => state.forwards)
     const start = useSelector(state => state.start)
     const dashboard = useSelector(state => state.dashboard)
+
+    const root = document.getElementById('root')
+    useEffect(() => {
+      console.log(root)
+      if (dashboard) {
+        root.style.height = '70vh';
+      } else {
+        root.style.height = '100vh';
+      }
+    }, [dashboard])
 
     return (
         <>

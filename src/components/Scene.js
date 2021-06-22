@@ -22,15 +22,6 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
   let startPosition = [0, 0, 20]
   let endPosition = [0, 0, -20]
   let livePosition = [0, 0, 0]
-  if (dashboard) {
-    startPosition = [2, 0, 20]
-    endPosition = [2, 0, -20]
-    livePosition = [2, 0, 0]
-  } else {
-    startPosition = [0, 0, 20]
-    endPosition = [0, 0, -20]
-    livePosition = [0, 0, 0]
-  }
 
   const [activeBox, setActiveBox] = useState(scene1);
   const [prevBox, setPrevBox] = useState(scene1);
@@ -130,20 +121,20 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
   })
 
   const spotlight = useRef()
-  const { scene } = useThree();
+  // const { scene } = useThree();
  
-  useEffect(() => {
-    if (spotlight.current) {
-      if (dashboard) {
-        spotlight.current.position.set(1.5, 6, 0)
-        spotlight.current.target.position.set(2, 0, 0)
-      } else {
-        spotlight.current.position.set(-0.5, 6, 0)
-        spotlight.current.target.position.set(0, 0, 0)
-      }
-      scene.add(spotlight.current.target)
-    }
-  }, [dashboard])
+  // useEffect(() => {
+  //   if (spotlight.current) {
+  //     if (dashboard) {
+  //       spotlight.current.position.set(1.5, 6, 0)
+  //       spotlight.current.target.position.set(2, 0, 0)
+  //     } else {
+  //       spotlight.current.position.set(-0.5, 6, 0)
+  //       spotlight.current.target.position.set(0, 0, 0)
+  //     }
+  //     scene.add(spotlight.current.target)
+  //   }
+  // }, [dashboard])
 
     // GIVING SHADOWS TO ALL MESH
     // scene1Mesh.scene.traverse(function(child) {
@@ -215,7 +206,7 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
         />
       </Plane>
       
-      <spotLight ref={spotlight} intensity={1} position={[4.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
+      <spotLight ref={spotlight} intensity={1} position={[-0.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
     </>
   );
 };
