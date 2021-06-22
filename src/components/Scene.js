@@ -131,15 +131,7 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
 
   const spotlight = useRef()
   const { scene } = useThree();
-
-  const { spotlightPos, spotlightTarget } = useSpring({
-    config,
-    spotlightPos:
-    dashboard ? (1.5, 6, 0) : (-0.5, 6, 0),
-    spotlightTarget:
-    dashboard ? (2, 6, 0) : (0, 6, 0)
-  })
-
+ 
   useEffect(() => {
     if (spotlight.current) {
       if (dashboard) {
@@ -222,7 +214,7 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
           color="#ffffff"
         />
       </Plane>
-      <spotLight ref={spotlight} castShadow intensity={1} position={[4.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
+      <animated.spotLight ref={spotlight} castShadow intensity={1} position={[4.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
     </>
   );
 };
