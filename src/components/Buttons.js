@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../actions/counter";
 import { forwardsFalse, forwardsTrue } from "../actions/buttons";
+import { finishOn } from "../actions/finish"; 
 import { openDash, closeDash } from "../actions/dashbaord";
 import { IconButton, Box } from '@material-ui/core'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
@@ -56,6 +57,19 @@ export const Buttons = () => {
             </IconButton>  
             }
         </Box>
+        {counter === 5 ? 
+        <Box px={2} className='finish-button'>
+            <button
+            className='startButton'
+            onClick={() => {
+                dispatch(finishOn())
+            }}
+            >
+                <h1 className='start-button'>Finish</h1>
+            </button> 
+        </Box>
+        : ''
+        }
         <Box px={2}>
             <Audio />
         </Box>

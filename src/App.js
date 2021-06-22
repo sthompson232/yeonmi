@@ -4,17 +4,18 @@ import { useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { Landing } from './components/Landing'
 import { Dashboard } from './components/Dashboard'
+import { Finish } from './components/Finish'
 import { OrbitControls } from "@react-three/drei";
 
 const App = () => {
     const counter = useSelector(state => state.counter)
     const forwards = useSelector(state => state.forwards)
     const start = useSelector(state => state.start)
+    const finish = useSelector(state => state.finish)
     const dashboard = useSelector(state => state.dashboard)
 
     const root = document.getElementById('root')
     useEffect(() => {
-      console.log(root)
       if (dashboard) {
         root.style.height = '70vh';
       } else {
@@ -27,6 +28,10 @@ const App = () => {
         { 
           start ? 
           <>
+            { finish ?
+            <Finish />
+            :
+            <>
             <Dashboard counter={counter} />
             <Canvas
             sRGB
@@ -49,6 +54,8 @@ const App = () => {
               {/* <OrbitControls /> */}
               <Scene activeScene={counter} forwards={forwards} dashboard={dashboard}/>
             </Canvas>
+            </>
+            }
           </>
             : 
           <Landing />

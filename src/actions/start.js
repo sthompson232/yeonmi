@@ -3,3 +3,8 @@ export const start = () => {
         type: 'START'
     }
 }
+export const restart = () => {
+    return {
+        type: 'RESTART'
+    }
+}
