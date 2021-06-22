@@ -9,6 +9,7 @@ import father from '../resources/father.glb'
 import child from '../resources/child.glb'
 import america from '../resources/america.glb'
 import mongolia from '../resources/mongolia.glb'
+import { Power3 } from 'gsap'
 
 
 export const Scene = ({ activeScene, forwards, dashboard }) => {
@@ -58,6 +59,7 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
   let prevScene6Pos = undefined 
 
   const config = {
+    ease: Power3.easeOut,
     duration: 2000,
     mass: 5,
     tension: 2000,
@@ -213,6 +215,7 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
           color="#ffffff"
         />
       </Plane>
+      
       <spotLight ref={spotlight} intensity={1} position={[4.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
     </>
   );
