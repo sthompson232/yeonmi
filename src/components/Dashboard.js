@@ -27,10 +27,10 @@ export const Dashboard = ({ counter }) => {
         <div className='dashboard'>
             <Accordion expanded={open} square className={classes.accordion}>
                 <AccordionSummary style={{ cursor: 'default' }} className={classes.panel}>
-                <Buttons />
+                    <Buttons />
                 </AccordionSummary>
                 <AccordionDetails>
-                <Story counter={counter} />
+                    <Story counter={counter} />
                 </AccordionDetails>
             </Accordion>
         </div>
