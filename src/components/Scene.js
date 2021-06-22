@@ -9,8 +9,7 @@ import father from '../resources/father.glb'
 import child from '../resources/child.glb'
 import america from '../resources/america.glb'
 import mongolia from '../resources/mongolia.glb'
-import { Power3 } from 'gsap'
-
+import * as easings from 'd3-ease'
 
 export const Scene = ({ activeScene, forwards, dashboard }) => {
   const scene1 = useRef();
@@ -59,8 +58,8 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
   let prevScene6Pos = undefined 
 
   const config = {
-    ease: Power3.easeOut,
-    duration: 2000,
+    easing: easings.easeCircleInOut,
+    duration: 4000,
     mass: 5,
     tension: 2000,
     friction: 200

@@ -19,17 +19,17 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
           <Suspense fallback={
-                <div className='loader'>
-                <Grid container className='loader' alignItems='center' justify='center'>
-                  <Grid item>
-                    <CircularProgress size={100} style={{ color: '#ffffff' }}/>
-                  </Grid>
+            <div className='loader'>
+              <Grid container className='loader' alignItems='center' justify='center'>
+                <Grid item>
+                  <CircularProgress size={100} style={{ color: '#ffffff' }}/>
                 </Grid>
-              </div>
-            }>
-              <App />
-            </Suspense>
-        </Provider>
+              </Grid>
+            </div>
+          }>
+            <App />
+          </Suspense>
+      </Provider>
     </React.StrictMode>,
   rootElement
 );
