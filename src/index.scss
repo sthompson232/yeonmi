@@ -46,14 +46,16 @@ body,
 }
 
 .buttons:hover {
-  background-color: #333333!important;
+  background-color: #222222!important;
 }
 
 .startButton {
-  color: #0E0E0E;
-  background-color: #ffffff;
-  padding: 5px;
-  border-radius: 15px;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 }
 
 .landing {
@@ -91,11 +93,11 @@ body,
 }
 
 ::-webkit-scrollbar-track {
-  background: #333333;
+  background: #0E0E0E;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #AAAAAA;
+  background-color: #999999;
   border-radius: 25px;
 }
 

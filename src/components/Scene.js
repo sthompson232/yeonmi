@@ -22,7 +22,6 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
   let startPosition = [0, 0, 20]
   let endPosition = [0, 0, -20]
   let livePosition = [0, 0, 0]
-
   if (dashboard) {
     startPosition = [2, 0, 20]
     endPosition = [2, 0, -20]
@@ -48,7 +47,7 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
   }, [activeScene]);
 
   useFrame(() => {
-    activeBox.current.rotation.y += 0.0005
+    activeBox.current.rotation.y += 0.0002
   })
 
   let prevScene1Pos = undefined 
@@ -146,75 +145,75 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
   }, [dashboard])
 
     // GIVING SHADOWS TO ALL MESH
-    scene1Mesh.scene.traverse(function(child) {
-      if (child.isMesh) {
-        child.castShadow = true
-        child.receiveShadow = true
-      }
-    })
-    scene2Mesh.scene.traverse(function(child) {
-      if (child.isMesh) {
-        child.castShadow = true
-        child.receiveShadow = true
-      }
-    })
-    scene3Mesh.scene.traverse(function(child) {
-      if (child.isMesh) {
-        child.castShadow = true
-        child.receiveShadow = true
-      }
-    })
-    scene4Mesh.scene.traverse(function(child) {
-      if (child.isMesh) {
-        child.castShadow = true
-        child.receiveShadow = true
-      }
-    })
-    scene5Mesh.scene.traverse(function(child) {
-      if (child.isMesh) {
-        child.castShadow = true
-        child.receiveShadow = true
-      }
-    })
-    scene6Mesh.scene.traverse(function(child) {
-      if (child.isMesh) {
-        child.castShadow = true
-        child.receiveShadow = true
-      }
-    })
+    // scene1Mesh.scene.traverse(function(child) {
+    //   if (child.isMesh) {
+    //     child.castShadow = true
+    //     child.receiveShadow = true
+    //   }
+    // })
+    // scene2Mesh.scene.traverse(function(child) {
+    //   if (child.isMesh) {
+    //     child.castShadow = true
+    //     child.receiveShadow = true
+    //   }
+    // })
+    // scene3Mesh.scene.traverse(function(child) {
+    //   if (child.isMesh) {
+    //     child.castShadow = true
+    //     child.receiveShadow = true
+    //   }
+    // })
+    // scene4Mesh.scene.traverse(function(child) {
+    //   if (child.isMesh) {
+    //     child.castShadow = true
+    //     child.receiveShadow = true
+    //   }
+    // })
+    // scene5Mesh.scene.traverse(function(child) {
+    //   if (child.isMesh) {
+    //     child.castShadow = true
+    //     child.receiveShadow = true
+    //   }
+    // })
+    // scene6Mesh.scene.traverse(function(child) {
+    //   if (child.isMesh) {
+    //     child.castShadow = true
+    //     child.receiveShadow = true
+    //   }
+    // })
 
   return (
     <>
-      <animated.mesh castShadow ref={scene1} position={scene1Pos} name="Scene1">
+      <animated.mesh ref={scene1} position={scene1Pos} name="Scene1">
         <primitive object={scene1Mesh.scene} />
       </animated.mesh>
 
-      <animated.mesh castShadow ref={scene2} position={scene2Pos} name="Scene2">
+      <animated.mesh ref={scene2} position={scene2Pos} name="Scene2">
         <primitive object={scene2Mesh.scene} />
       </animated.mesh>
 
-      <animated.mesh castShadow ref={scene3} position={scene3Pos} name="Scene3">
+      <animated.mesh ref={scene3} position={scene3Pos} name="Scene3">
         <primitive object={scene3Mesh.scene} />
       </animated.mesh>
 
-      <animated.mesh castShadow ref={scene4} position={scene4Pos} name="Scene4">
+      <animated.mesh ref={scene4} position={scene4Pos} name="Scene4">
         <primitive object={scene4Mesh.scene} />
       </animated.mesh>
 
-      <animated.mesh castShadow ref={scene5} position={scene5Pos} name="Scene5">
+      <animated.mesh ref={scene5} position={scene5Pos} name="Scene5">
         <primitive object={scene5Mesh.scene} />
       </animated.mesh>
 
-      <animated.mesh castShadow ref={scene6} position={scene6Pos} name="Scene6">
+      <animated.mesh ref={scene6} position={scene6Pos} name="Scene6">
         <primitive object={scene6Mesh.scene} />
       </animated.mesh>
 
-      <Plane receiveShadow rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[15, 15]}>
+      <Plane rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[15, 15]}>
         <meshStandardMaterial 
           color="#ffffff"
         />
       </Plane>
-      <animated.spotLight ref={spotlight} castShadow intensity={1} position={[4.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
+      <spotLight ref={spotlight} intensity={1} position={[4.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
     </>
   );
 };

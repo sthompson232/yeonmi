@@ -21,7 +21,6 @@ const App = () => {
           <Canvas
           sRGB
             colorManagement={true}
-            shadows
             gl={{
               preserveDrawingBuffer: true,
               alpha: false, 
@@ -37,7 +36,7 @@ const App = () => {
               gl.setClearColor('#000000')
             }}
           >
-            <OrbitControls />
+            {/* <OrbitControls /> */}
             <Scene activeScene={counter} forwards={forwards} dashboard={dashboard}/>
           </Canvas>
           </>
