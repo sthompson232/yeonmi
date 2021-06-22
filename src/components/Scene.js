@@ -1,7 +1,8 @@
+import * as THREE from 'three' 
 import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from '@react-spring/three';
-import { Plane } from '@react-three/drei'
-import { useFrame, useLoader, useThree } from '@react-three/fiber'
+import { Circle } from '@react-three/drei'
+import { useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import southkorea from '../resources/southkorea.glb'
 import china from '../resources/china.glb'
@@ -10,14 +11,20 @@ import child from '../resources/child.glb'
 import america from '../resources/america.glb'
 import mongolia from '../resources/mongolia.glb'
 import * as easings from 'd3-ease'
+import img from '../resources/color2.jpg'
 
-export const Scene = ({ activeScene, forwards, dashboard }) => {
+export const Scene = ({ activeScene, forwards }) => {
   const scene1 = useRef();
   const scene2 = useRef();
   const scene3 = useRef();
   const scene4 = useRef();
   const scene5 = useRef();
   const scene6 = useRef();
+  const circle = useRef();
+
+  const texture = useLoader(THREE.TextureLoader, img)
+  texture.wrapS = texture.wrapT = THREE.RepeatWrapping
+  texture.repeat.set(2, 2)
 
   let startPosition = [0, 0, 20]
   let endPosition = [0, 0, -20]
@@ -39,6 +46,7 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
 
   useFrame(() => {
     activeBox.current.rotation.y += 0.0002
+    circle.current.rotation.z += 0.0002
   })
 
   let prevScene1Pos = undefined 
@@ -197,16 +205,18 @@ export const Scene = ({ activeScene, forwards, dashboard }) => {
       </animated.mesh>
 
       <animated.mesh ref={scene6} position={scene6Pos} name="Scene6">
-        <primitive object={scene6Mesh.scene} />
+        <primitive object={scene6Mesh.scene}/>
       </animated.mesh>
 
-      <Plane rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[15, 15]}>
+      <Circle ref={circle} rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[4, 16]}>
         <meshStandardMaterial 
-          color="#ffffff"
+          map={texture}
+          roughness={0.0}
         />
-      </Plane>
-      
-      <spotLight ref={spotlight} intensity={1} position={[-0.5, 6, 0]} penumbra={0.3} angle={Math.PI / 6}/>
+      </Circle>
+      {/* <ambientLight /> */}
+      <spotLight ref={spotlight} position={[-0.5, 10, 0]} penumbra={0.3} angle={Math.PI / 10} />
+      <directionalLight position={[0, -1, 0]} intensity={1}/>
     </>
   );
 };

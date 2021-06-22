@@ -52,7 +52,7 @@ const App = () => {
               }}
             >
               {/* <OrbitControls /> */}
-              <Scene activeScene={counter} forwards={forwards} dashboard={dashboard}/>
+              <Scene activeScene={counter} forwards={forwards} />
             </Canvas>
             </>
             }
