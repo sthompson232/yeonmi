@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "./components/Scene";
 import { useSelector } from "react-redux";
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Landing } from './components/Landing'
 import { Dashboard } from './components/Dashboard'
 import { OrbitControls } from "@react-three/drei";
