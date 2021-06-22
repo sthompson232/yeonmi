@@ -14,6 +14,7 @@ export const Finish = () => {
     const text1 = useRef()
     const text2 = useRef()
     const text3 = useRef()
+    const text4 = useRef()
     const buttons = useRef()
     const credits = useRef()
 
@@ -25,8 +26,9 @@ export const Finish = () => {
         tl.fromTo(text1.current, from, to, 0)
         .fromTo(text2.current, from, to, 1)
         .fromTo(text3.current, from, to, 2)
-        .fromTo(buttons.current, from, to, 3)
-        .fromTo(credits.current, from, to, 4)
+        .fromTo(text4.current, from, to, 3)
+        .fromTo(buttons.current, from, to, 4)
+        .fromTo(credits.current, from, to, 5)
     }, [tl])
 
     return (
@@ -36,6 +38,8 @@ export const Finish = () => {
             <h2 className='end-text' ref={text2}>Some final information about what Yeonmi is doing today</h2>
             <br />
             <h2 className='end-text' ref={text3}>To find out more information visit youtuve channel</h2>
+            <br />
+            <h2 className='end-text' ref={text4}>Or buy her book</h2>
             <br />
             <div ref={buttons}>
                 <Box px={2} display="inline">

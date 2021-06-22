@@ -1,4 +1,4 @@
-const soundReducer = (state = true, action) => {
+const soundReducer = (state = false, action) => {
     switch(action.type) {
         case 'SOUND_ON':
             return true
