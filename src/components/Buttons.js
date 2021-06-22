@@ -29,7 +29,7 @@ export const Buttons = () => {
     
     return (
         <>
-        <Box p={2}>
+        <Box px={2}>
             <IconButton
                 className='buttons'
                 disabled={disableButtons ? true : disableBack}
@@ -44,6 +44,8 @@ export const Buttons = () => {
             >
                 <ArrowBackIcon style={disableButtons || disableBack ? {color: '#555555'} : {color: '#ffffff'}} />
             </IconButton>
+        </Box>
+        <Box px={2}>
             {dashboard ? 
             <IconButton onClick={() => {dispatch(closeDash())}} className='buttons'>
                 <ExpandMoreIcon style={{ color: '#ffffff' }}/>
@@ -53,7 +55,11 @@ export const Buttons = () => {
                 <ExpandLessIcon style={{ color: '#ffffff' }} />
             </IconButton>  
             }
+        </Box>
+        <Box px={2}>
             <Audio />
+        </Box>
+        <Box px={2}>
             <IconButton
                 className='buttons'
                 disabled={disableButtons ? true : disableForward}
