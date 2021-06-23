@@ -21,7 +21,7 @@ export const Buttons = () => {
     const [disableButtons, setDisableButtons] = useState(false)
     const [disableBack, setDisableBack] = useState(true)
     const [disableForward, setDisableForward] = useState(false)
-    const buttonTimeout = 1000
+    const duration = useSelector(state => state.duration) 
 
     useEffect(() => {
         {counter === 0 ? setDisableBack(true) : setDisableBack(false)}
@@ -40,7 +40,7 @@ export const Buttons = () => {
                 setDisableButtons(true)
                 setTimeout(() => {
                     setDisableButtons(false)
-                }, buttonTimeout)
+                }, duration * 2000)
                 }}
             >
                 <ArrowBackIcon style={disableButtons || disableBack ? {color: '#555555'} : {color: '#ffffff'}} />
@@ -83,7 +83,7 @@ export const Buttons = () => {
                 setDisableButtons(true)
                 setTimeout(() => {
                     setDisableButtons(false)
-                }, buttonTimeout)
+                }, duration * 2000)
                 }}
             >
                 <ArrowForwardIcon style={disableButtons || disableForward ? {color: '#555555'} : {color: '#ffffff'}}  />

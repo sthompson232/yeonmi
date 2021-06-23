@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Box } from '@material-ui/core'
 import { start } from "../actions/start";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Audio } from './Audio'
 import { gsap, Power3 } from 'gsap'
 
@@ -14,6 +14,7 @@ export const Landing = () => {
     const title = useRef()
     const body = useRef()
     const buttons = useRef()
+    const duration = useSelector(state => state.duration)
 
     let tl = gsap.timeline()
     const from = {autoAlpha: 0}
@@ -22,19 +23,19 @@ export const Landing = () => {
     useEffect(() => {
         tl.fromTo(story.current, from, to, 0)
         .fromTo(title.current, from, to, 1)
-        .from(line1.current, {scale: 0, duration: 6}, 1)
-        .from(line2.current, {scale: 0, duration: 6}, 1)
+        .from(line1.current, {scale: 0, duration: duration * 2}, 1)
+        .from(line2.current, {scale: 0, duration: duration * 2}, 1)
         .fromTo(body.current, from, to, 2)
         .fromTo(buttons.current, from, to, 4)
     }, [tl])
 
     const fadeout = () => {
-        gsap.to(story.current, {opacity: 0, duration: 3})
-        gsap.to(title.current, {opacity: 0, duration: 3})
-        gsap.to(line1.current, {opacity: 0, duration: 3})
-        gsap.to(line2.current, {opacity: 0, duration: 3})
-        gsap.to(body.current, {opacity: 0, duration: 3})
-        gsap.to(buttons.current, {opacity: 0, duration: 3})
+        gsap.to(story.current, {opacity: 0, duration: duration})
+        gsap.to(title.current, {opacity: 0, duration: duration})
+        gsap.to(line1.current, {opacity: 0, duration: duration})
+        gsap.to(line2.current, {opacity: 0, duration: duration})
+        gsap.to(body.current, {opacity: 0, duration: duration})
+        gsap.to(buttons.current, {opacity: 0, duration: duration})
     }
 
     return (
@@ -56,7 +57,7 @@ export const Landing = () => {
                         fadeout()
                         setTimeout(function() {
                             dispatch(start())
-                        }, 3000)
+                        }, duration * 1000)
                     }}
                 >
                     <h1 className='start-button'>Start the experience</h1>
