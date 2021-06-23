@@ -149,11 +149,7 @@ export const Scene = ({ activeScene, forwards }) => {
       </animated.mesh>
 
       <Circle ref={circle} rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[4, 16]}>
-        <meshStandardMaterial 
-        color='0xffffff'
-          // map={texture}
-          // roughness={0.0}
-        />
+        <meshStandardMaterial />
       </Circle>
       <spotLight position={[-0.5, 10, 0]} penumbra={0.3} angle={Math.PI / 10} />
     </>

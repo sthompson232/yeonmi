@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
+import { gsap, Power3 } from 'gsap'
 import { useSelector } from "react-redux";
 
 export const Story = ({ counter }) => {
@@ -12,8 +12,8 @@ export const Story = ({ counter }) => {
 
     const duration = useSelector(state => state.duration)
     
-    const come = {opacity: 1, display: 'block', duration: duration, delay: duration}
-    const go = {opacity: 0, display: 'none', duration: duration}
+    const come = {opacity: 1, display: 'block', duration: duration, ease: Power3.easeIn, delay: duration}
+    const go = {opacity: 0, display: 'none', duration: duration, ease: Power3.easeOut}
 
     useEffect(() => {
         counter === 0 ? gsap.to(scene1.current, come) : gsap.to(scene1.current, go)
