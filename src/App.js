@@ -32,7 +32,6 @@ const App = () => {
     }, [start])
 
     useEffect(() => {
-      console.log(finishBlackout.current)
       if (initFinish) {
         gsap.fromTo(finishBlackout.current, {opacity: 0}, {opacity: 1, display: 'block', ease: Power3.easeOut, duration: duration})
         setTimeout(function() {

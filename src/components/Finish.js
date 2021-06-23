@@ -42,7 +42,7 @@ export const Finish = () => {
             <br />
             <h2 className='end-text' ref={text4}>Or buy her book</h2>
             <br />
-            <div ref={buttons}>
+            <div ref={buttons} style={{ visibility: 'hidden' }}>
                 <Box px={2} display="inline">
                     <Audio />
                 </Box>

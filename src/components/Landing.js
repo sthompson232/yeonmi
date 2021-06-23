@@ -23,8 +23,8 @@ export const Landing = () => {
     useEffect(() => {
         tl.fromTo(story.current, from, to, 0)
         .fromTo(title.current, from, to, 1)
-        .from(line1.current, {scale: 0, duration: duration * 2}, 1)
-        .from(line2.current, {scale: 0, duration: duration * 2}, 1)
+        .fromTo(line1.current, {scale: 0, autoAlpha: 1}, {scale:1, autoAlpha:1, duration: duration * 2}, 1)
+        .fromTo(line2.current, {scale: 0, autoAlpha: 1}, {scale:1, autoAlpha:1, duration: duration * 2}, 1)
         .fromTo(body.current, from, to, 2)
         .fromTo(buttons.current, from, to, 4)
     }, [tl])
@@ -43,11 +43,11 @@ export const Landing = () => {
         {/* <div className="blackout" style={{ height: '100%' }}>gfdn</div> */}
         <div className='landing'>
             <h2 ref={story} className='story-of'><i>The Story of</i></h2>
-            <hr ref={line1}/>
+            <hr ref={line1} style={{ visibility: 'hidden' }} />
             <h1 ref={title} className='title'>Yeonmi Park</h1>
-            <hr ref={line2}/>
+            <hr ref={line2} style={{ visibility: 'hidden' }} />
             <h3 ref={body} className='subtitle'>North Korean defector, and human rights activist.</h3>
-            <div ref={buttons}>
+            <div ref={buttons} style={{ visibility: 'hidden' }}>
                 <Box px={2}>
                     <Audio />
                 </Box>
