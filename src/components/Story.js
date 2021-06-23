@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { gsap, Power3 } from 'gsap'
 
 export const Story = ({ counter }) => {
     const scene1 = useRef()
@@ -8,8 +9,16 @@ export const Story = ({ counter }) => {
     const scene5 = useRef()
     const scene6 = useRef()
 
+    const duration = 1
+    const come = {opacity: 1, duration: duration}
+    const go = {opacity: 0, duration: duration}
+
     useEffect(() => {
-        if (counter === 0) {scene1.current.style.display = 'inline'} else {scene1.current.style.display = 'none'}
+        if (counter === 0) {
+            gsap.to(scene1.current, come)
+        } else {
+            gsap.to(scene1.current, go)
+        }
         if (counter === 1) {scene2.current.style.display = 'inline'} else {scene2.current.style.display = 'none'}
         if (counter === 2) {scene3.current.style.display = 'inline'} else {scene3.current.style.display = 'none'}
         if (counter === 3) {scene4.current.style.display = 'inline'} else {scene4.current.style.display = 'none'}
