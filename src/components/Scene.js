@@ -1,4 +1,3 @@
-import * as THREE from 'three' 
 import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from '@react-spring/three';
 import { Circle } from '@react-three/drei'

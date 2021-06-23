@@ -9,21 +9,17 @@ export const Story = ({ counter }) => {
     const scene5 = useRef()
     const scene6 = useRef()
 
-    const duration = 1
-    const come = {opacity: 1, duration: duration}
-    const go = {opacity: 0, duration: duration}
+    const duration = 2
+    const come = {opacity: 1, display: 'block', duration: duration}
+    const go = {opacity: 0, display: 'none', duration: duration}
 
     useEffect(() => {
-        if (counter === 0) {
-            gsap.to(scene1.current, come)
-        } else {
-            gsap.to(scene1.current, go)
-        }
-        if (counter === 1) {scene2.current.style.display = 'inline'} else {scene2.current.style.display = 'none'}
-        if (counter === 2) {scene3.current.style.display = 'inline'} else {scene3.current.style.display = 'none'}
-        if (counter === 3) {scene4.current.style.display = 'inline'} else {scene4.current.style.display = 'none'}
-        if (counter === 4) {scene5.current.style.display = 'inline'} else {scene5.current.style.display = 'none'}
-        if (counter === 5) {scene6.current.style.display = 'inline'} else {scene6.current.style.display = 'none'}
+        counter === 0 ? gsap.to(scene1.current, come, duration) : gsap.to(scene1.current, go)
+        counter === 1 ? gsap.to(scene2.current, come, duration) : gsap.to(scene2.current, go)
+        counter === 2 ? gsap.to(scene3.current, come, duration) : gsap.to(scene3.current, go)
+        counter === 3 ? gsap.to(scene4.current, come, duration) : gsap.to(scene4.current, go)
+        counter === 4 ? gsap.to(scene5.current, come, duration) : gsap.to(scene5.current, go)
+        counter === 5 ? gsap.to(scene6.current, come, duration) : gsap.to(scene6.current, go)
     }, [counter])
 
     return (

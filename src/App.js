@@ -5,7 +5,6 @@ import React, { useEffect } from "react";
 import { Landing } from './components/Landing'
 import { Dashboard } from './components/Dashboard'
 import { Finish } from './components/Finish'
-import { OrbitControls } from "@react-three/drei";
 
 const App = () => {
     const counter = useSelector(state => state.counter)
@@ -51,7 +50,6 @@ const App = () => {
                 gl.setClearColor('#000000')
               }}
             >
-              {/* <OrbitControls /> */}
               <Scene activeScene={counter} forwards={forwards} />
             </Canvas>
             </>
