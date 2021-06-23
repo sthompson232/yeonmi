@@ -11,7 +11,6 @@ import child from '../resources/child.glb'
 import america from '../resources/america.glb'
 import mongolia from '../resources/mongolia.glb'
 import * as easings from 'd3-ease'
-import img from '../resources/color2.jpg'
 
 export const Scene = ({ activeScene, forwards }) => {
   const scene1 = useRef();
@@ -21,10 +20,6 @@ export const Scene = ({ activeScene, forwards }) => {
   const scene5 = useRef();
   const scene6 = useRef();
   const circle = useRef();
-
-  const texture = useLoader(THREE.TextureLoader, img)
-  texture.wrapS = texture.wrapT = THREE.RepeatWrapping
-  texture.repeat.set(2, 2)
 
   let startPosition = [0, 0, 20]
   let endPosition = [0, 0, -20]
@@ -210,13 +205,12 @@ export const Scene = ({ activeScene, forwards }) => {
 
       <Circle ref={circle} rotation={[Math.PI * 1.5, 0, 0]} position={[0, 0, 0]} args={[4, 16]}>
         <meshStandardMaterial 
-          map={texture}
-          roughness={0.0}
+        color='0xffffff'
+          // map={texture}
+          // roughness={0.0}
         />
       </Circle>
-      {/* <ambientLight /> */}
       <spotLight ref={spotlight} position={[-0.5, 10, 0]} penumbra={0.3} angle={Math.PI / 10} />
-      <directionalLight position={[0, -1, 0]} intensity={1}/>
     </>
   );
 };
