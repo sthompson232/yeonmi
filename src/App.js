@@ -1,10 +1,11 @@
 import { Canvas } from "@react-three/fiber";
 import { Scene } from "./components/Scene";
 import { useSelector } from "react-redux";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Landing } from './components/Landing'
 import { Dashboard } from './components/Dashboard'
 import { Finish } from './components/Finish'
+import { gsap, Power3 } from "gsap";
 
 const App = () => {
     const counter = useSelector(state => state.counter)
@@ -12,6 +13,9 @@ const App = () => {
     const start = useSelector(state => state.start)
     const finish = useSelector(state => state.finish)
     const dashboard = useSelector(state => state.dashboard)
+    const duration = useSelector(state => state.duration)
+    const blackout = useRef()
+    const finishBlackout = useRef()
 
     const root = document.getElementById('root')
     useEffect(() => {
@@ -22,15 +26,27 @@ const App = () => {
       }
     }, [dashboard])
 
+    useEffect(() => {
+      if (start) {gsap.to(blackout.current, {opacity: 0, display: 'none', ease: Power3.easeIn, duration: duration * 2})}
+    }, [start])
+
+    useEffect(() => {
+      if (finish) {gsap.to(finishBlackout.current, {opacity: 1, display: 'block', ease: Power3.easeIn, duration: duration * 2})}
+    }, [finish])
+
     return (
         <>
         { 
           start ? 
           <>
             { finish ?
+            <>
+            <div ref={finishBlackout} className='blackout'></div>
             <Finish />
+            </>
             :
             <>
+            <div ref={blackout} className='blackout'></div>
             <Dashboard counter={counter} />
             <Canvas
             sRGB

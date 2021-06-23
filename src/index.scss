@@ -50,10 +50,10 @@ body,
 }
 
 .blackout {
-  height: 100px;
-  width: 100vh;
+  height: 100%;
+  width: 100%;
   position: absolute;
-  background-color: '#0E0E0E';
+  background-color: #0E0E0E;
   z-index: 20;
 }
 
