@@ -5,6 +5,7 @@ import startReducer from "./start";
 import soundReducer from "./sound";
 import dashboardReducer from "./dashboard";
 import finishReducer from "./finish";
+import durationReducer from "./duration";
 
 const rootReducer = combineReducers({
     counter: counterReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     start: startReducer,
     sound: soundReducer,
     dashboard: dashboardReducer,
-    finish: finishReducer
+    finish: finishReducer,
+    duration: durationReducer
 })
 
 export default rootReducer
