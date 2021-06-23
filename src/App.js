@@ -12,6 +12,7 @@ const App = () => {
     const forwards = useSelector(state => state.forwards)
     const start = useSelector(state => state.start)
     const finish = useSelector(state => state.finish)
+    const initFinish = useSelector(state => state.initFinish)
     const dashboard = useSelector(state => state.dashboard)
     const duration = useSelector(state => state.duration)
     const blackout = useRef()
@@ -31,8 +32,14 @@ const App = () => {
     }, [start])
 
     useEffect(() => {
-      if (finish) {gsap.to(finishBlackout.current, {opacity: 1, display: 'block', ease: Power3.easeIn, duration: duration * 2})}
-    }, [finish])
+      console.log(finishBlackout.current)
+      if (initFinish) {
+        gsap.fromTo(finishBlackout.current, {opacity: 0}, {opacity: 1, display: 'block', ease: Power3.easeOut, duration: duration})
+        setTimeout(function() {
+          gsap.to(finishBlackout.current, {display: 'none'})
+        }, duration * 1000)
+    }
+    }, [initFinish])
 
     return (
         <>
@@ -41,11 +48,11 @@ const App = () => {
           <>
             { finish ?
             <>
-            <div ref={finishBlackout} className='blackout'></div>
             <Finish />
             </>
             :
             <>
+            <div ref={finishBlackout} className='blackout' style={{ display: 'none' }}></div>
             <div ref={blackout} className='blackout'></div>
             <Dashboard counter={counter} />
             <Canvas

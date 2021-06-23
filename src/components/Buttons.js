@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../actions/counter";
 import { forwardsFalse, forwardsTrue } from "../actions/buttons";
 import { finishOn } from "../actions/finish"; 
+import { initFinishOn } from "../actions/initfinish";
 import { openDash, closeDash } from "../actions/dashbaord";
 import { IconButton, Box } from '@material-ui/core'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
@@ -62,7 +63,10 @@ export const Buttons = () => {
             <button
             className='startButton'
             onClick={() => {
-                dispatch(finishOn())
+                dispatch(initFinishOn())
+                setTimeout(function() {
+                    dispatch(finishOn())
+                }, duration * 1000)
             }}
             >
                 <h1 className='start-button'>Finish</h1>

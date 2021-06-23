@@ -122,60 +122,6 @@ export const Scene = ({ activeScene, forwards }) => {
       prevScene6Pos
   })
 
-  const spotlight = useRef()
-  // const { scene } = useThree();
- 
-  // useEffect(() => {
-  //   if (spotlight.current) {
-  //     if (dashboard) {
-  //       spotlight.current.position.set(1.5, 6, 0)
-  //       spotlight.current.target.position.set(2, 0, 0)
-  //     } else {
-  //       spotlight.current.position.set(-0.5, 6, 0)
-  //       spotlight.current.target.position.set(0, 0, 0)
-  //     }
-  //     scene.add(spotlight.current.target)
-  //   }
-  // }, [dashboard])
-
-    // GIVING SHADOWS TO ALL MESH
-    // scene1Mesh.scene.traverse(function(child) {
-    //   if (child.isMesh) {
-    //     child.castShadow = true
-    //     child.receiveShadow = true
-    //   }
-    // })
-    // scene2Mesh.scene.traverse(function(child) {
-    //   if (child.isMesh) {
-    //     child.castShadow = true
-    //     child.receiveShadow = true
-    //   }
-    // })
-    // scene3Mesh.scene.traverse(function(child) {
-    //   if (child.isMesh) {
-    //     child.castShadow = true
-    //     child.receiveShadow = true
-    //   }
-    // })
-    // scene4Mesh.scene.traverse(function(child) {
-    //   if (child.isMesh) {
-    //     child.castShadow = true
-    //     child.receiveShadow = true
-    //   }
-    // })
-    // scene5Mesh.scene.traverse(function(child) {
-    //   if (child.isMesh) {
-    //     child.castShadow = true
-    //     child.receiveShadow = true
-    //   }
-    // })
-    // scene6Mesh.scene.traverse(function(child) {
-    //   if (child.isMesh) {
-    //     child.castShadow = true
-    //     child.receiveShadow = true
-    //   }
-    // })
-
   return (
     <>
       <animated.mesh ref={scene1} position={scene1Pos} name="Scene1">
@@ -209,7 +155,7 @@ export const Scene = ({ activeScene, forwards }) => {
           // roughness={0.0}
         />
       </Circle>
-      <spotLight ref={spotlight} position={[-0.5, 10, 0]} penumbra={0.3} angle={Math.PI / 10} />
+      <spotLight position={[-0.5, 10, 0]} penumbra={0.3} angle={Math.PI / 10} />
     </>
   );
 };

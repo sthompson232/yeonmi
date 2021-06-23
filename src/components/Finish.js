@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Box, IconButton } from '@material-ui/core'
 import { finishOff } from "../actions/finish";
+import { initFinishOff } from '../actions/initfinish';
 import { restart } from "../actions/start"
 import { reset } from "../actions/counter";
 import { useDispatch } from "react-redux";
@@ -52,6 +53,7 @@ export const Finish = () => {
                             dispatch(finishOff())
                             dispatch(reset())
                             dispatch(restart())
+                            dispatch(initFinishOff())
                         }}
                     >
                         <ReplayIcon style={{ color: '#ffffff' }} />
