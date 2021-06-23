@@ -25,16 +25,27 @@ export const Landing = () => {
         .from(line1.current, {scale: 0, duration: 6}, 1)
         .from(line2.current, {scale: 0, duration: 6}, 1)
         .fromTo(body.current, from, to, 2)
-        .fromTo(buttons.current, from, to, 3)
+        .fromTo(buttons.current, from, to, 4)
     }, [tl])
 
+    const fadeout = () => {
+        gsap.to(story.current, {opacity: 0, duration: 3})
+        gsap.to(title.current, {opacity: 0, duration: 3})
+        gsap.to(line1.current, {opacity: 0, duration: 3})
+        gsap.to(line2.current, {opacity: 0, duration: 3})
+        gsap.to(body.current, {opacity: 0, duration: 3})
+        gsap.to(buttons.current, {opacity: 0, duration: 3})
+    }
+
     return (
+        <>
+        {/* <div className="blackout" style={{ height: '100%' }}>gfdn</div> */}
         <div className='landing'>
             <h2 ref={story} className='story-of'><i>The Story of</i></h2>
             <hr ref={line1}/>
             <h1 ref={title} className='title'>Yeonmi Park</h1>
             <hr ref={line2}/>
-            <p ref={body}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3 ref={body} className='subtitle'>North Korean defector, and human rights activist.</h3>
             <div ref={buttons}>
                 <Box px={2}>
                     <Audio />
@@ -42,13 +53,16 @@ export const Landing = () => {
                 <button
                     className='startButton'
                     onClick={() => {
-                        dispatch(start())
+                        fadeout()
+                        setTimeout(function() {
+                            dispatch(start())
+                        }, 3000)
                     }}
                 >
                     <h1 className='start-button'>Start the experience</h1>
                 </button>
-
             </div>
         </div>
+    </>
     )
 }
