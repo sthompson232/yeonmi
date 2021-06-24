@@ -50,8 +50,20 @@ body,
 .buttons {
   display: inline;
   background-color: #ffffff;
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 350px) {
     transform: scale(1.5);
+  }
+}
+
+.button-padding {
+  @media screen and (max-width: 400px) {
+    padding: 15px;
+  }
+  @media screen and (max-width: 350px) {
+    padding: 5px;
+  }
+  @media screen and (min-width: 400px) {
+    padding: 20px;
   }
 }
 
@@ -155,14 +167,5 @@ body,
   font-weight: 300;
   @media screen and (max-width: 480px) {
     font-size: 0.8rem;
-  }
-}
-
-.button-padding {
-  @media screen and (max-width: 480px) {
-    padding: 5px;
-  }
-  @media screen and (min-width: 480px) {
-    padding: 20px;
   }
 }
