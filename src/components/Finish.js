@@ -35,13 +35,13 @@ export const Finish = () => {
 
     return (
         <div className='landing'>
-            <h2 className='end-text' ref={text1}>Maybe some information about China n stuff</h2>
+            <h2 className='end-text' ref={text1}>In 2021, North Korea is still the most repressed country in the world</h2>
             <br />
-            <h2 className='end-text' ref={text2}>Some final information about what Yeonmi is doing today</h2>
+            <h2 className='end-text' ref={text2}>As a result of her activism, Yeonmi Park is high on Kim Jong-un's hit-list</h2>
             <br />
-            <h2 className='end-text' ref={text3}>To find out more information visit youtuve channel</h2>
+            <h2 className='end-text' ref={text3}>To learn more about Yeonmi Park and her life, visit her YouTube channel <a target="_blank" style={{ textDecoration: 'none', color: '#ffffff' }} href="https://www.youtube.com/channel/UCpQu57KgT7gOoLCAu3FFQsA"><u>Voice of North Korea by Yeonmi Park</u></a></h2>
             <br />
-            <h2 className='end-text' ref={text4}>Or buy her book</h2>
+            <h2 className='end-text' ref={text4}>Or read her book <a target="_blank" style={{ textDecoration: 'none', color: '#ffffff' }} href="https://www.penguinrandomhouse.com/books/318940/in-order-to-live-by-yeonmi-park-with-maryanne-vollers/"><u>In Order to Live</u></a></h2>
             <br />
             <div ref={buttons} style={{ visibility: 'hidden' }}>
                 <Box px={2} display="inline">

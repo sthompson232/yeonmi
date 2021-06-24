@@ -21,7 +21,7 @@ const App = () => {
     const root = document.getElementById('root')
     useEffect(() => {
       if (dashboard) {
-        root.style.height = '70vh';
+        root.style.height = '80vh';
       } else {
         root.style.height = '100vh';
       }
