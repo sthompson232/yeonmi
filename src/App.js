@@ -18,6 +18,10 @@ const App = () => {
     const blackout = useRef()
     const finishBlackout = useRef()
 
+    const remove = () => {
+      blackout.current.style.display = 'none'
+    }
+
     useEffect(() => {
       const root = document.getElementById('root')
       if (dashboard) {
@@ -52,7 +56,7 @@ const App = () => {
             :
             <>
             <div ref={finishBlackout} className='blackout' style={{ display: 'none' }}></div>
-            <div ref={blackout} className='blackout'></div>
+            <div ref={blackout} className='blackout' onClick={() => {remove()}}></div>
             <Dashboard counter={counter} />
             <Canvas
             sRGB
