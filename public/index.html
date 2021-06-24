@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix='og: http://ogp.me/ns#'>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -8,11 +8,20 @@
     <meta name="theme-color" content="#0E0E0E" />
     <meta
       name="description"
-      content="The story of Yeonmi Park"
+      content="Discover the story of North Korean defector and human rights activist Yeonmi Park."
     />
     <meta 
       property="og:title"
-      content="Yeonmi Park" 
+      content="The Story of Yeonmi Park" 
+    />
+    <meta 
+      property='og:description'
+      content='Discover the story of North Korean defector and human rights activist Yeonmi Park.'
+    />
+    <meta 
+      name='image'
+      property='og:image'
+      content='%PUBLIC_URL%/share.png'
     />
     <meta 
       name='author'
@@ -23,6 +32,14 @@
       property='og:url'
       content='https://yeonmi-park.com'
     />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-393WHZL92Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-393WHZL92Y');
+    </script>
   </head>
   <body>
     <audio id="soundfile" src='audio.mp3'></audio>
