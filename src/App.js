@@ -56,7 +56,13 @@ const App = () => {
             :
             <>
             <div ref={finishBlackout} className='blackout' style={{ display: 'none' }}></div>
-            <div ref={blackout} className='blackout' onClick={() => {remove()}}></div>
+            <div 
+              ref={blackout} 
+              className='blackout' 
+              onClick={() => {remove()}}
+              onTouchStart={() => {remove()}}
+            >
+            </div>
             <Dashboard counter={counter} />
             <Canvas
             sRGB
