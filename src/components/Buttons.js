@@ -11,6 +11,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Audio } from './Audio'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import DoneIcon from '@material-ui/icons/Done';
 
 
 export const Buttons = () => {
@@ -31,7 +32,7 @@ export const Buttons = () => {
     
     return (
         <>
-        <Box px={2}>
+        <Box className='button-padding'>
             <IconButton
                 className='buttons'
                 disabled={disableButtons ? true : disableBack}
@@ -47,7 +48,7 @@ export const Buttons = () => {
                 <ArrowBackIcon style={disableButtons || disableBack ? {color: '#555555'} : {color: '#ffffff'}} />
             </IconButton>
         </Box>
-        <Box px={2}>
+        <Box className='button-padding'>
             {dashboard ? 
             <IconButton onClick={() => {dispatch(closeDash())}} className='buttons'>
                 <ExpandMoreIcon style={{ color: '#ffffff' }}/>
@@ -59,9 +60,9 @@ export const Buttons = () => {
             }
         </Box>
         {counter === 5 ? 
-        <Box px={2} className='finish-button'>
-            <button
-            className='startButton'
+        <Box className='button-padding'>
+            <IconButton
+            className='buttons'
             onClick={() => {
                 dispatch(initFinishOn())
                 setTimeout(function() {
@@ -69,15 +70,15 @@ export const Buttons = () => {
                 }, duration * 1000)
             }}
             >
-                <h1 className='start-button'>Finish</h1>
-            </button> 
+                <DoneIcon style={{ color: '#ffffff' }}/>
+            </IconButton> 
         </Box>
         : ''
         }
-        <Box px={2}>
+        <Box className='button-padding'>
             <Audio />
         </Box>
-        <Box px={2}>
+        <Box className='button-padding'>
             <IconButton
                 className='buttons'
                 disabled={disableButtons ? true : disableForward}

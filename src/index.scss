@@ -49,8 +49,10 @@ body,
 
 .buttons {
   display: inline;
-  transform: scale(1.5);
   background-color: #ffffff;
+  @media screen and (min-width: 500px) {
+    transform: scale(1.5);
+  }
 }
 
 .buttons:hover {
@@ -148,6 +150,19 @@ body,
 }
 
 .end-text {
+  font-size: 1.5rem;
   visibility: hidden;
   font-weight: 300;
+  @media screen and (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+}
+
+.button-padding {
+  @media screen and (max-width: 480px) {
+    padding: 5px;
+  }
+  @media screen and (min-width: 480px) {
+    padding: 20px;
+  }
 }

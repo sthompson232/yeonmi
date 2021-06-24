@@ -28,6 +28,7 @@ export const Story = ({ counter }) => {
                 padding: 20, 
                 textAlign:'start',
                 maxHeight: '25vh',
+                minHeight: '200px',
                 overflowY: 'scroll',
             }}>
             <div ref={scene1}>
