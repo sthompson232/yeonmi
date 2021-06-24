@@ -37,7 +37,7 @@ export const Finish = () => {
         <div className='landing'>
             <h2 className='end-text' ref={text1}>In 2021, North Korea is still the most repressed country in the world</h2>
             <br />
-            <h2 className='end-text' ref={text2}>As a result of her activism, Yeonmi Park is high on Kim Jong-un's hit-list</h2>
+            <h2 className='end-text' ref={text2}>As a result of her activism, Yeonmi Park is on Kim Jong-un's hit-list</h2>
             <br />
             <h2 className='end-text' ref={text3}>To learn more about Yeonmi Park and her life, visit her YouTube channel <a target="_blank" style={{ textDecoration: 'none', color: '#ffffff' }} href="https://www.youtube.com/channel/UCpQu57KgT7gOoLCAu3FFQsA"><u>Voice of North Korea by Yeonmi Park</u></a></h2>
             <br />
@@ -61,7 +61,7 @@ export const Finish = () => {
                     </IconButton>
                 </Box>
             </div>
-            <h3 className='end-text' ref={credits}><i>Website and music designed and created by <a target="_blank" style={{ textDecoration: 'none', color: '#ffffff' }} href="https://www.samthompson.io"><u>Sam Thompson</u></a></i></h3>
+            <h3 className='end-text' ref={credits}><i>Website and music created by <a target="_blank" style={{ textDecoration: 'none', color: '#ffffff' }} href="https://www.samthompson.io"><u>Sam Thompson</u></a></i></h3>
         </div>
     )
 }
