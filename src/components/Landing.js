@@ -17,10 +17,11 @@ export const Landing = () => {
     const duration = useSelector(state => state.duration)
 
     let tl = gsap.timeline()
-    const from = {autoAlpha: 0}
-    const to = {autoAlpha: 1, ease: Power3.easeOut, duration: 6}
 
     useEffect(() => {
+        const from = {autoAlpha: 0}
+        const to = {autoAlpha: 1, ease: Power3.easeOut, duration: 6}
+        
         tl.fromTo(story.current, from, to, 0)
         .fromTo(title.current, from, to, 1)
         .fromTo(line1.current, {scale: 0, autoAlpha: 1}, {scale:1, autoAlpha:1, duration: duration * 2}, 1)

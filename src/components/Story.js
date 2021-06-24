@@ -11,11 +11,10 @@ export const Story = ({ counter }) => {
     const scene6 = useRef()
 
     const duration = useSelector(state => state.duration)
-    
-    const come = {opacity: 1, display: 'block', duration: duration, ease: Power3.easeIn, delay: duration}
-    const go = {opacity: 0, display: 'none', duration: duration, ease: Power3.easeOut}
 
     useEffect(() => {
+        const come = {opacity: 1, display: 'block', duration: duration, ease: Power3.easeIn, delay: duration}
+        const go = {opacity: 0, display: 'none', duration: duration, ease: Power3.easeOut}
         counter === 0 ? gsap.to(scene1.current, come) : gsap.to(scene1.current, go)
         counter === 1 ? gsap.to(scene2.current, come) : gsap.to(scene2.current, go)
         counter === 2 ? gsap.to(scene3.current, come) : gsap.to(scene3.current, go)

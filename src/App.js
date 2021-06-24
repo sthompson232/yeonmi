@@ -18,8 +18,8 @@ const App = () => {
     const blackout = useRef()
     const finishBlackout = useRef()
 
-    const root = document.getElementById('root')
     useEffect(() => {
+      const root = document.getElementById('root')
       if (dashboard) {
         root.style.height = '80vh';
       } else {
