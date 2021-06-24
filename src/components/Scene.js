@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from '@react-spring/three';
-import { Circle } from '@react-three/drei'
-import { useFrame, useLoader } from '@react-three/fiber'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { Circle, useGLTF } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 import southkorea from '../resources/southkorea.glb'
 import china from '../resources/china.glb'
 import father from '../resources/father.glb'
@@ -59,12 +58,13 @@ export const Scene = ({ activeScene, forwards }) => {
   }
 
   // LOAD MODELS 
-  const scene1Mesh = useLoader(GLTFLoader, child)
-  const scene2Mesh = useLoader(GLTFLoader, father)
-  const scene3Mesh = useLoader(GLTFLoader, china)
-  const scene4Mesh = useLoader(GLTFLoader, mongolia)
-  const scene5Mesh = useLoader(GLTFLoader, southkorea)
-  const scene6Mesh = useLoader(GLTFLoader, america)
+  const url = 'https://www.gstatic.com/draco/v1/decoders/'
+  const scene1Mesh = useGLTF(child, url)
+  const scene2Mesh = useGLTF(father, url) 
+  const scene3Mesh = useGLTF(china, url) 
+  const scene4Mesh = useGLTF(mongolia, url) 
+  const scene5Mesh = useGLTF(southkorea, url) 
+  const scene6Mesh = useGLTF(america, url) 
 
   // POSITIONS OF ALL MODELS
   const { scene1Pos } = useSpring({
