@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import ReactDOM from "react-dom";
 import { gsap, Power3 } from 'gsap'
 import { useSelector } from "react-redux";
 
@@ -9,6 +10,7 @@ export const Story = ({ counter }) => {
     const scene4 = useRef()
     const scene5 = useRef()
     const scene6 = useRef()
+    const scroller = useRef()
 
     const duration = useSelector(state => state.duration)
 
@@ -21,6 +23,9 @@ export const Story = ({ counter }) => {
         counter === 3 ? gsap.to(scene4.current, come) : gsap.to(scene4.current, go)
         counter === 4 ? gsap.to(scene5.current, come) : gsap.to(scene5.current, go)
         counter === 5 ? gsap.to(scene6.current, come) : gsap.to(scene6.current, go)
+        setTimeout(function() {
+            ReactDOM.findDOMNode(scroller.current).scrollTop = 0
+        }, duration * 1000)
     }, [counter])
 
     return (
@@ -30,7 +35,9 @@ export const Story = ({ counter }) => {
                 maxHeight: '25vh',
                 minHeight: '200px',
                 overflowY: 'scroll',
-            }}>
+            }}
+            ref={scroller}
+            >
             <div ref={scene1}>
                 <h1 className='scene-title'>North Korea</h1>
                 <hr />
