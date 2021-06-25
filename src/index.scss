@@ -50,14 +50,14 @@ body,
 .buttons {
   display: inline;
   background-color: #ffffff;
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: 450px) {
     transform: scale(1.5);
   }
 }
 
 .button-padding {
   @media screen and (max-width: 450px) {
-    padding: 15px;
+    padding: 10px;
   }
   @media screen and (max-width: 350px) {
     padding: 5px;
