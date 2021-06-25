@@ -14,6 +14,19 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 
+const injectGA = () => {
+  if (typeof window == 'undefined') {
+    return;
+  }
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-QE3HJ28DTM');
+};
+
 const rootElement = document.getElementById("root");
 ReactDOM.render(
     <React.StrictMode>
@@ -27,6 +40,11 @@ ReactDOM.render(
               </Grid>
             </div>
           }>
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-QE3HJ28DTM"
+            />
+            <script>{injectGA()}</script>
             <App />
           </Suspense>
       </Provider>
